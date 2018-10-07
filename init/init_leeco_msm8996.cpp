@@ -44,10 +44,11 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
-#include "vendor_init.h"
 #include "property_service.h"
 
 #define DEVINFO_FILE "/dev/block/sde21"
+
+#define TARGET_INIT_VENDOR_LIB
 
 using android::base::Trim;
 using android::base::GetProperty;
