@@ -229,9 +229,6 @@ endif
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
-# RIL
-TARGET_RIL_VARIANT := caf
-
 # Security patch level - (zl1 EUI ROM CN 20s)
 VENDOR_SECURITY_PATCH := 2016-10-01
 
