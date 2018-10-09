@@ -224,9 +224,9 @@ vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|6b892756e745b73d3f68
 vendor/lib/libQTEEConnector_vendor.so|be869ca55f30fb7004fcd0952177e2968922f219
 vendor/lib/vendor.qti.hardware.qteeconnector@1.0_vendor.so|60aa6167356fe945e548c2c8153865e51508dfde
 
-# Gatekeeper - from CAF
-vendor/lib/hw/gatekeeper.msm8996.so|ac555627694d57b1dd79b4ddf3faec2e9174967f
-vendor/lib64/hw/gatekeeper.msm8996.so|285d7f197ee11a5eac1b1e333f7dfe8684087859
+# Gatekeeper - Gemini 8.0.0/OPR1.170623.032/8.9.13
+vendor/lib/hw/gatekeeper.msm8996.so
+vendor/lib64/hw/gatekeeper.msm8996.so
 
 # GPS - from B2N_sprout:9/PPR1.180610.009/00WW_3_190
 etc/permissions/com.qti.location.sdk.xml|cb68a566bd77dcc75bb7547199d528289fac01cb
@@ -408,9 +408,9 @@ vendor/lib64/lib-uceservice.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0_vendor.so
 
-# Keystore - from CAF
-vendor/lib/hw/keystore.msm8996.so|bd92d1ccbc294e6bcb0fdb4018749646d1ba0193
-vendor/lib64/hw/keystore.msm8996.so|ade812bb2991c103f6af397e9662460ed0e48d5f
+# Keystore - Gemini 8.0.0/OPR1.170623.032/8.9.13
+vendor/lib/hw/keystore.msm8996.so
+vendor/lib64/hw/keystore.msm8996.so
 
 # Listen - from OnePlus3
 vendor/lib/hw/sound_trigger.primary.msm8996.so|48674459b8e5dcec0231a9345c8824a248d8f537
