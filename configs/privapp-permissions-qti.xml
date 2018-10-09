@@ -16,4 +16,9 @@
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
         <permission name="android.permission.PACKET_KEEPALIVE_OFFLOAD"/>
     </privapp-permissions>
+
+    <privapp-permissions package="com.qualcomm.location">
+        <permission name="android.permission.MANAGE_USERS"/>
+    </privapp-permissions>
 </permissions>
+
