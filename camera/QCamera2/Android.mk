@@ -83,6 +83,9 @@ LOCAL_C_INCLUDES := \
         hardware/libhardware/include/hardware \
         hardware/qcom/media-caf-msm8996/libstagefrighthw \
         hardware/qcom/media-caf-msm8996/mm-core/inc \
+        hardware/qcom/display-caf-msm8996/gralloc \
+        hardware/qcom/display-caf-msm8996/libqdutils \
+        hardware/qcom/display-caf-msm8996/include \
         system/core/include/cutils \
         system/core/include/system \
         system/media/camera/include/system
@@ -111,7 +114,10 @@ endif
 LOCAL_C_INCLUDES += \
         $(TARGET_OUT_HEADERS)/qcom/display
 LOCAL_C_INCLUDES += \
-        hardware/qcom/display-caf-msm8996/libqservice
+        hardware/qcom/display-caf-msm8996/libqservice \
+        hardware/qcom/display-caf-msm8996/gralloc \
+        hardware/qcom/display-caf-msm8996/libqdutils \
+        hardware/qcom/display-caf-msm8996/include
 LOCAL_SHARED_LIBRARIES := liblog libhardware libutils libcutils libdl libsync
 LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libui libcamera_metadata
 LOCAL_SHARED_LIBRARIES += libqdMetaData libqservice libbinder
