@@ -55,6 +55,9 @@ using android::base::GetProperty;
 using android::base::ReadFileToString;
 using android::init::property_set;
 
+namespace android {
+namespace init {
+
 void property_override(const std::string& name, const std::string& value)
 {
     size_t valuelen = value.size();
@@ -230,3 +233,6 @@ void vendor_load_properties() {
     init_target_properties();
     init_alarm_boot_properties();
 }
+
+}  // namespace init
+} // namespace android
