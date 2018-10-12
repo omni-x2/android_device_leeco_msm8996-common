@@ -242,7 +242,8 @@ PRODUCT_PACKAGES += \
 
 # LeParts settigs modules
 PRODUCT_PACKAGES += \
-    LeParts
+    LeParts \
+    LeDoze
 
 # Lights
 PRODUCT_PACKAGES += \
