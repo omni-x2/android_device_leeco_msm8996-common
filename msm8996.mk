@@ -134,6 +134,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor
 
+# Charger
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/charger/charger:$(TARGET_COPY_OUT_VENDOR)/bin/charger \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/charger/images,root/res/images)
+
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
@@ -200,14 +205,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl \
     android.hardware.health@1.0-convert \
     android.hardware.health@1.0-service
-
-# Healthd packages
-PRODUCT_PACKAGES += \
-    charger_res_images \
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/charger/charger:$(TARGET_COPY_OUT_VENDOR)/bin/charger \
-
 
 # HIDL
 PRODUCT_PACKAGES += \
