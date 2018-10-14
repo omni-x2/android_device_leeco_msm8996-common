@@ -44,19 +44,15 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
+#include "vendor_init.h"
 #include "property_service.h"
 
 #define DEVINFO_FILE "/dev/block/sde21"
-
-#define TARGET_INIT_VENDOR_LIB
 
 using android::base::Trim;
 using android::base::GetProperty;
 using android::base::ReadFileToString;
 using android::init::property_set;
-
-namespace android {
-namespace init {
 
 void property_override(const std::string& name, const std::string& value)
 {
@@ -233,6 +229,3 @@ void vendor_load_properties() {
     init_target_properties();
     init_alarm_boot_properties();
 }
-
-}  // namespace init
-} // namespace android

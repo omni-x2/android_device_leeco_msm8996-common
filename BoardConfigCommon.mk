@@ -114,6 +114,11 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom/display-$(TARGET_QCOM_DISPLAY_VARIANT) \
     hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)
 
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom/audio-$(TARGET_QCOM_AUDIO_VARIANT) \
+    hardware/qcom/display-$(TARGET_QCOM_DISPLAY_VARIANT) \
+    hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)
+
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 DEVICE_SPECIFIC_CAMERA_PATH := $(PLATFORM_PATH)/camera
@@ -247,7 +252,7 @@ VENDOR_SECURITY_PATCH := 2016-10-01
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-include vendor/omni/sepolicy/sepolicy.mk
+include vendor/nitrogen/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/vendor
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(PLATFORM_PATH)/sepolicy/private
