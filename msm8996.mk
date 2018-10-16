@@ -415,8 +415,4 @@ PRODUCT_COPY_FILES += \
 BOARD_VENDOR_EXTRA_SYMLINKS += \
     /vendor/firmware:/firmware/drm
 
-# Model is set via init library
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
-    ro.product.model
-
 $(call inherit-product, vendor/leeco/msm8996-common/msm8996-common-vendor.mk)
