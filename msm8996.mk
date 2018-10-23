@@ -286,6 +286,10 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# OpenDelta
+PRODUCT_PACKAGES += \
+    OpenDelta
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
