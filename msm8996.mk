@@ -350,7 +350,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     telephony-ext
 
-PRODUCT_BOOT_JARS += \
+#PRODUCT_BOOT_JARS += \
     telephony-ext
 
 # TextClassifier smart selection model files
