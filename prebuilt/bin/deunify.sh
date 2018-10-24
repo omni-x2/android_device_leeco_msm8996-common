@@ -26,6 +26,10 @@ case "$DEVINFO" in
     rm -f /system/framework/org.simalliance.openmobileapi.jar
     rm -rf /vendor/app/SmartcardService
     ;;
+  le_zl1*)
+    # Remove qti-telephony-common.jar
+    rm -f /system/framework/qti-telephony-common.jar
+    ;;
   *)
     echo "Nothing to do!"
     ;;
