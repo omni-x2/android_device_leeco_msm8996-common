@@ -16,30 +16,15 @@
 <resources>
     <string name="app_name">Le Extras</string>
     <string name="advanced_settings">Настройки устройства</string>
-    <string name="category_system">Система</string>
-    <string name="vib_strength_title_head">Сила вибрации</string>
 
     <!-- Ambient display -->
     <string name="display_title">Экран</string>
     <string name="device_doze_title">Индикация событий (doze)</string>
 
-    <!-- Battery -->
-    <string name="battery_settings_title">Батарея</string>
-    <string name="qc_title">Быстрая зарядка</string>
-    <string name="qc_summary">Включить/выключить быструю зарядку</string>
-
     <!-- Camera -->
     <string name="camera_pref_title">Камера</string>
     <string name="camera_focus_fix_title">Фикс автофокуса</string>
     <string name="camera_focus_fix_summary">Для устройств с проблемой с автофокусом</string>
-
-    <!-- Volte -->
-    <string name="volte_pref_title">VoLTE Хак</string>
-    <string name="volte_fix_title">Включить VoLTE</string>
-    <string name="volte_fix_summary">Требуется перезагрузка, настройки симкарт будут слетать при каждой загрузке</string>
-
-    <string name="s2s_title">Sweep to sleep</string>
-    <string name="s2s_vib_strength_title_head">Sweep2sleep vibration</string>
 
     <!-- Kcal -->
     <string name="kcal_title">Калибровка дисплея</string>
