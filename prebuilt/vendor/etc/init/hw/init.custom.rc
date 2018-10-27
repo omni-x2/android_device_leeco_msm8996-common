@@ -14,6 +14,10 @@ on boot
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_hue
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_min
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_val
+    # IR
+    chmod 666 /dev/remote/name
+    chmod 666 /sys/remote/enable
+    chmod 666 /dev/ttyHSL1
 
 # AutoFocus fix
 on property:persist.camera.focus_fix=1
