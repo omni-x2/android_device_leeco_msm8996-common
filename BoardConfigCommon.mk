@@ -247,6 +247,9 @@ BOARD_USES_VENDOR_QCOM := false
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
+# RIL: use old mnc format
+TARGET_USE_OLD_MNC_FORMAT := true
+
 # Security patch level - (zl1 EUI ROM CN 20s)
 VENDOR_SECURITY_PATCH := 2016-10-01
 
