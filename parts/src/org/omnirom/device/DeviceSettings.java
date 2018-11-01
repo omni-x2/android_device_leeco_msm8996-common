@@ -49,6 +49,8 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String KEY_CATEGORY_DISPLAY = "display";
     private static final String KEY_CATEGORY_CAMERA = "camera_pref";
     private static final String SYSTEM_PROPERTY_CAMERA_FOCUS_FIX = "persist.camera.focus_fix";
+    private static final String SPECTRUM_KEY = "spectrum";
+    private static final String SPECTRUM_SYSTEM_PROPERTY = "persist.spectrum.profile";
     final String KEY_DEVICE_DOZE = "device_doze";
     final String KEY_DEVICE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
 
@@ -56,6 +58,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private Preference mKcalPref;
     private SwitchPreference mCameraFocusFix;
     private PreferenceCategory cameraCategory;
+    private ListPreference mSPECTRUM;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -82,6 +85,12 @@ public class DeviceSettings extends PreferenceFragment implements
             }
         }
 
+        mSPECTRUM = (ListPreference) findPreference(SPECTRUM_KEY);
+        if( mSPECTRUM != null ) {
+            mSPECTRUM.setValue(SystemProperties.get(SPECTRUM_SYSTEM_PROPERTY, "0"));
+            mSPECTRUM.setOnPreferenceChangeListener(this);
+        }
+
         if (!isAppInstalled(KEY_DEVICE_DOZE_PACKAGE_NAME)) {
             PreferenceCategory displayCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_DISPLAY);
             displayCategory.removePreference(findPreference(KEY_DEVICE_DOZE));
@@ -98,9 +107,15 @@ public class DeviceSettings extends PreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final String key = preference.getKey();
         boolean value;
-        value = (Boolean) newValue;
-        ((SwitchPreference)preference).setChecked(value);
-        setEnable(key,value);
+        String strvalue;
+        if (SPECTRUM_KEY.equals(key)) {
+            strvalue = (String) newValue;
+            SystemProperties.set(SPECTRUM_SYSTEM_PROPERTY, strvalue);
+        } else {
+            value = (Boolean) newValue;
+            ((SwitchPreference)preference).setChecked(value);
+            setEnable(key,value);
+        }
         return true;
     }
 

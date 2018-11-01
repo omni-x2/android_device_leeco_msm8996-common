@@ -38,4 +38,10 @@
     <string name="kcal_contrast">Контраст</string>
     <string name="menu_reset">Сбросить</string>
     <string name="kcal_color_temp">Температура цвета (K)</string>
+
+    <!-- Spectrum Profiles -->
+    <string name="spectrum_profile_title">SPECTRUM Профили</string>
+    <string name="spectrum_title">SPECTRUM Профиль</string>
+    <string name="spectrum_summary">Выберите Ваш профиль энергосбережения</string>
+    <string name="spectrum_dialogTitle">Выберите Ваш профиль</string>
 </resources>
