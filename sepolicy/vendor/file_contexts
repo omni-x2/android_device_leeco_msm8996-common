@@ -38,3 +38,6 @@
 
 # Usb hal
 /(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.leeco_msm8996       u:object_r:hal_usb_default_exec:s0
+
+# power hal
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.1-service\.leeco_8996       u:object_r:hal_power_default_exec:s0
