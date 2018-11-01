@@ -25,3 +25,22 @@ on property:persist.camera.focus_fix=1
 
 on property:persist.camera.focus_fix=0
     write /sys/module/msm_actuator/parameters/use_focus_fix 0
+
+# cpuidle use deepest state
+on property:persist.pm.cpuidle_ds=1
+    write /sys/module/cpuidle/parameters/use_deepest_state 1
+
+on property:persist.pm.cpuidle_ds=0
+    write /sys/module/cpuidle/parameters/use_deepest_state 0
+
+on property:persist.pm.krnl_wl_block=0
+    write /sys/module/wakeup/parameters/enable_wakelock_blocker 0
+
+on property:persist.pm.krnl_wl_block=1
+    write /sys/module/wakeup/parameters/enable_wakelock_blocker 1
+
+on property:persist.pm.krnl_wl_qcom_rx=0
+    write /sys/module/wakeup/parameters/enable_qcom_rx_wakelock_ws 1
+
+on property:persist.pm.krnl_wl_qcom_rx=1
+    write /sys/module/wakeup/parameters/enable_qcom_rx_wakelock_ws 0

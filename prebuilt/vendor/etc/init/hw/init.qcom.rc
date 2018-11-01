@@ -298,10 +298,21 @@ on post-fs-data
     mkdir /data/misc/SelfHost/Running/ 2750 system shell
     mkdir /data/misc/SelfHost/socket/ 2770 system system
 
-    # Create PERFD deamon related dirs
-    mkdir /data/vendor/perfd 0770 root system
-    chmod 2770 /data/vendor/perfd
-    rm /data/vendor/perfd/default_values
+    #Create PERFD deamon related dirs
+    setprop ro.min_freq_0 384000
+    mkdir /data/misc/perfd 0755 root system
+    chmod 2755 /data/misc/perfd
+    mkdir /data/system/perfd 0770 root system
+    rm /data/system/perfd/default_values
+    chmod 2770 /data/system/perfd
+
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    chown system system /sys/class/devfreq/soc:qcom,gpubw/min_freq
+    chmod 0660 /sys/class/devfreq/soc:qcom,gpubw/min_freq
+
 
     # NFC local data and nfcee xml storage
     mkdir /data/nfc 0770 nfc nfc
@@ -568,6 +579,7 @@ on property:sys.boot_completed=1
     swapon_all /vendor/etc/fstab.qcom
     # Enable hvdcp
     setprop persist.hvdcp.allow_opti 1
+    import /vendor/etc/init/hw/init.spectrum.rc
 
 # Start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
@@ -610,7 +622,7 @@ service perfd /vendor/bin/perfd
    socket perfd seqpacket 0666 root system
    writepid /dev/cpuset/system-background/tasks
 
-service thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine.conf}
+service thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine-8996.conf}
    class main
    user root
    socket thermal-send-client stream 0666 system system
