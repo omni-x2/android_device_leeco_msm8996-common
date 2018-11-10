@@ -145,6 +145,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.csvt.enabled=false \
     persist.radio.REVERSE_QMI=0 \
     persist.radio.ROTATION_ENABLE=1 \
+    persist.radio.data_ltd_sys_ind=1 \
     persist.rcs.supported=1 \
     persist.vendor.radio.cs_srv_type=1 \
     persist.vendor.radio.custom_ecc=1 \
