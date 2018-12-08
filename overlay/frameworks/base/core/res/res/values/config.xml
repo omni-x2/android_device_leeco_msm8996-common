@@ -408,4 +408,7 @@
     <!-- Button brightness support -->
     <bool name="config_button_brightness_support">true</bool>
 
+    <!-- Whether the device has outdated qti-telephony-common.jar -->
+    <bool name="config_oldQtiTelephony">false</bool>
+
 </resources>
