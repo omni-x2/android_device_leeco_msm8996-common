@@ -15,15 +15,9 @@
 # limitations under the License.
 #
 
-# LeEco msm8996 devices launched with M
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
-
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
-
-PRODUCT_ENFORCE_RRO_TARGETS := framework-res
+    $(LOCAL_PATH)/overlay
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -67,7 +61,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
+    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
+    $(LOCAL_PATH)/configs/privapp-permissions-letv.xml:system/etc/permissions/privapp-permissions-letv.xml
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -143,6 +138,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor
 
+# Charger
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/charger/charger:$(TARGET_COPY_OUT_VENDOR)/bin/charger \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/charger/images,root/res/images)
+
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
@@ -172,10 +172,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.display.config@1.1 \
     vendor.display.config@1.1_vendor
-
-# Doze mode
-PRODUCT_PACKAGES += \
-    Doze
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -241,6 +237,11 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
 
+# LeParts settigs modules
+PRODUCT_PACKAGES += \
+    LeParts \
+    LeDoze
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.leeco_8996
@@ -286,7 +287,9 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
+    android.hardware.power@1.0-impl \
+    android.hardware.power@1.0-service \
+    power.qcom
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
