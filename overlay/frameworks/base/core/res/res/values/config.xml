@@ -31,26 +31,14 @@
          Zone N:        array[N - 1] <= LUX < array[N]
          Zone N + 1     array[N] <= LUX < infinity
          Must be overridden in platform specific overlays -->
-    <integer-array name="config_autoBrightnessLevels">,
-        <item>6</item>
-        <item>8</item>
-        <item>10</item>
-        <item>15</item>
-        <item>30</item>
-        <item>50</item>
-        <item>100</item>
-        <item>230</item>
-        <item>400</item>
-        <item>500</item>
-        <item>650</item>
-        <item>825</item>
-        <item>1000</item>
-        <item>2500</item>
-        <item>5000</item>
-        <item>6250</item>
-        <item>7500</item>
+    <integer-array name="config_autoBrightnessLevels">
+        <item>20</item>
+        <item>45</item>
+        <item>1025</item>
+        <item>1480</item>
+        <item>2250</item>
+        <item>3300</item>
         <item>10000</item>
-        <item>12000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -58,26 +46,14 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>12</item>     <!-- 0-5 -->
-        <item>16</item>     <!-- 6-7 -->
-        <item>18</item>     <!-- 8-9 -->
-        <item>20</item>     <!-- 10-14 -->
-        <item>25</item>     <!-- 15-29 -->
-        <item>28</item>     <!-- 30-49 -->
-        <item>34</item>     <!-- 50-99 -->
-        <item>37</item>     <!-- 100-229 -->
-        <item>41</item>     <!-- 239-399 -->
-        <item>48</item>     <!-- 400-499 -->
-        <item>57</item>     <!-- 500-649 -->
-        <item>75</item>     <!-- 650-824 -->
-        <item>81</item>     <!-- 825-999 -->
-        <item>90</item>     <!-- 1000-2499 -->
-        <item>100</item>    <!-- 2500-4999 -->
-        <item>125</item>    <!-- 5000-6249 -->
-        <item>165</item>    <!-- 6250-7499 -->
-        <item>200</item>    <!-- 7500-9999 -->
-        <item>225</item>    <!-- 10000-11999 -->
-        <item>255</item>    <!-- 12000-19417 (max value of light sensor) -->
+        <item>6</item>
+        <item>10</item>
+        <item>20</item>
+        <item>46</item>
+        <item>78</item>
+        <item>128</item>
+        <item>220</item>
+        <item>255</item>
     </integer-array>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
@@ -99,7 +75,18 @@
          brightness changes occur in response to an observed change in light level that exceeds the
          hysteresis threshold. -->
     <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">3250</integer>
+
+    <!-- Minimum color temperature, in Kelvin, supported by Night display. -->
+    <integer name="config_nightDisplayColorTemperatureMin">3500</integer>
+
+    <!-- Default color temperature, in Kelvin, to tint the screen when Night display is
+         activated. -->
+    <integer name="config_nightDisplayColorTemperatureDefault">4200</integer>
+
+    <!-- Maximum color temperature, in Kelvin, supported by Night display. -->
+    <integer name="config_nightDisplayColorTemperatureMax">6000</integer>
+
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
@@ -413,6 +400,22 @@
          and one pSIM) -->
     <integer name="config_num_physical_slots">2</integer>
 
-    <!-- Enable adjusting the button backlight -->
-    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
+    <!-- Hardware 'face' keys present on the device, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back
+             4 - Menu
+             8 - Assistant (search)
+            16 - App switch
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+    <integer name="config_deviceHardwareKeys">19</integer>
+
+    <!-- Button brightness support -->
+    <bool name="config_button_brightness_support">true</bool>
+
+    <!-- Whether the device has outdated qti-telephony-common.jar -->
+    <bool name="config_oldQtiTelephony">false</bool>
+
 </resources>
