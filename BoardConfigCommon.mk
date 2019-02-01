@@ -57,9 +57,7 @@ TARGET_KERNEL_SOURCE := kernel/leeco/msm8996
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 TARGET_COMPILE_WITH_MSM_KERNEL := true
-
-# QCOM hardware
-BOARD_USES_QCOM_HARDWARE := true
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
@@ -102,10 +100,7 @@ USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bionic
-TARGET_LD_SHIM_LIBS := /system/vendor/lib/libmmcamera_ppeiscore.so|libshims_camera.so:/system/bin/mm-qcamera-daemon|libshims_qcamera-daemon.so
-
-TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-    /system/vendor/bin/mm-qcamera-daemon=23
+TARGET_NEEDS_LEGACY_MUTEX_HANDLE := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth
@@ -114,6 +109,17 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
 QCOM_BT_USE_SMD_TTY := true
+
+# CAF HALs
+TARGET_QCOM_AUDIO_VARIANT := caf-msm8996
+TARGET_QCOM_MEDIA_VARIANT := caf-msm8996
+TARGET_QCOM_DISPLAY_VARIANT := caf-msm8996
+TARGET_QCOM_BLUETOOTH_VARIANT := caf-msm8996
+
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom/audio-$(TARGET_QCOM_AUDIO_VARIANT) \
+    hardware/qcom/display-$(TARGET_QCOM_DISPLAY_VARIANT) \
+    hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -161,7 +167,13 @@ BOARD_USES_QCNE := true
 TARGET_HW_DISK_ENCRYPTION := true
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
+# Dexpreopt
+WITH_DEXPREOPT := true
+DONT_DEXPREOPT_PREBUILTS := true
+
 # Display
+BOARD_USES_ADRENO := true
+
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
@@ -174,11 +186,15 @@ TARGET_USES_OVERLAY := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
 
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 USE_OPENGL_RENDERER := true
+
+# DRM
+TARGET_ENABLE_MEDIADRM_64 := true
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
@@ -257,6 +273,12 @@ TW_INCLUDE_NTFS_3G := true
 else
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/recovery/fstab.qcom
 endif
+
+# QCOM
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_QCOM_BSP := false
+# Fix build on Jenkins
+BOARD_USES_VENDOR_QCOM := false
 
 # SELinux
 # include device/qcom/sepolicy/sepolicy.mk

@@ -64,7 +64,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
+    frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
+    $(LOCAL_PATH)/configs/privapp-permissions-letv.xml:system/etc/permissions/privapp-permissions-letv.xml
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -136,6 +137,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor
+
+# Charger
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/charger/charger:$(TARGET_COPY_OUT_VENDOR)/bin/charger \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/charger/images,root/res/images)
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
@@ -251,6 +257,10 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
 
+# LeParts settigs modules
+PRODUCT_PACKAGES += \
+    LeParts
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
@@ -281,6 +291,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libextmedia_jni \
+    libmm-omxcore \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \

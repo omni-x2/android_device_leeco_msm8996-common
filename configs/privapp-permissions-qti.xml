@@ -6,6 +6,7 @@
 
     <privapp-permissions package="com.qualcomm.location">
         <permission name="android.permission.CONTROL_LOCATION_UPDATES"/>
+        <permission name="android.permission.MANAGE_USERS"/>
     </privapp-permissions>
 
     <privapp-permissions package="com.qualcomm.qcrilmsgtunnel">
@@ -20,5 +21,16 @@
     <privapp-permissions package="com.quicinc.cne.CNEService">
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
         <permission name="android.permission.PACKET_KEEPALIVE_OFFLOAD"/>
+    </privapp-permissions>
+
+    <privapp-permissions package="org.simalliance.openmobileapi.service">
+        <permission name="android.permission.MODIFY_PHONE_STATE"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+    </privapp-permissions>
+
+    <privapp-permissions package="org.codeaurora.ims">
+        <permission name="android.permission.READ_PRECISE_PHONE_STATE"/>
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <permission name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME"/>
     </privapp-permissions>
 </permissions>
