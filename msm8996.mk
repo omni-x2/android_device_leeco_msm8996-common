@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     camera.msm8996 \
-    Snap
+    SnapdragonCamera2
 
 # Charger
 PRODUCT_COPY_FILES += \
@@ -281,6 +281,10 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# OpenDelta
+PRODUCT_PACKAGES += \
+    OpenDelta
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
@@ -310,6 +314,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librecovery_updater_leeco
 
+# Releasetools
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/bin/toybox:install/bin/toybox \
+    $(LOCAL_PATH)/prebuilt/bin/deunify.sh:install/bin/deunify.sh \
+    $(LOCAL_PATH)/prebuilt/bin/sgdisk:install/bin/sgdisk \
+    $(LOCAL_PATH)/prebuilt/bin/unlock-vendor.sh:install/bin/unlock-vendor.sh
+
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
@@ -321,13 +332,6 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librmnetctl \
     libxml2
-
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -401,8 +405,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-# Model is set via init library
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
-    ro.product.model
+# Create a symlink for libcppf.so and liboemcrypto.so which expects the cppf firmware at
+# /system/etc/firmware to be able to move cppf firmware (via hex edit) to /vendor a link 
+# /vendor/firmware/drm is created, which points to /vendor/firmware
+BOARD_VENDOR_EXTRA_SYMLINKS += \
+    /vendor/firmware:/firmware/drm
 
 $(call inherit-product, vendor/leeco/msm8996-common/msm8996-common-vendor.mk)
