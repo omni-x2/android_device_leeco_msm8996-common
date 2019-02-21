@@ -23,6 +23,8 @@ on boot
     chown system system /sys/block/sda/queue/iosched/slice_idle
     chmod 0660 /sys/kernel/tracing/tracing_on
     chmod 0660 /sys/block/sda/queue/iosched/slice_idle
+    # focus fix
+    chown system system /sys/module/msm_actuator/parameters/use_focus_fix
 
 # AutoFocus fix
 on property:persist.camera.focus_fix=1
